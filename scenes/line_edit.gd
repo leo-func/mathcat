@@ -1,9 +1,9 @@
 extends LineEdit
 
 var old_text := ""
-var submitted_text
 signal number_submitted(number)
 @onready var line_edit: LineEdit = $"."
+@onready var label: Label = $"../Label"
 
 func _ready() -> void:
 	line_edit.text_changed.connect(_something)
@@ -18,12 +18,13 @@ func _something(text: String) -> void:
 
 func _on_text_submitted(submitted_text):
 	emit_signal("number_submitted", submitted_text)
+	check_answer(submitted_text)
 	clear()
 	print(submitted_text)
 
 func check_answer(submitted_text: String) -> void:
 	if submitted_text == Calculation.converted:
 		print("Correto! Gerando novo cálculo...")
-		Calculation.generate_calculation()
+		Calculation._generate_calculation()
 	else:
 		print("Errado, tente novamente.")

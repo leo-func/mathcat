@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 NormalModeGlobal="*res://normal_mode.gd"
 Calculation="*res://scenes/calculation.gd"
+GlobalInput="*res://scenes/line_edit.gd"
+GameGlobal="*res://scenes/game.gd"
 
 [input]
 
